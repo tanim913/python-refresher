@@ -65,3 +65,8 @@ l5 = l4[:]
 l6 = [1, 2, 3, 4]
 l7 = [i*i for i in l6]
 print(l7)
+
+
+l8 = [0] * 5
+print(l8)
+print(l8.count(0))
