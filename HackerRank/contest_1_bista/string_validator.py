@@ -1,5 +1,3 @@
-str = '111'
-
 
 def string_val(str):
     lst = list(str)
@@ -22,4 +20,6 @@ def string_val(str):
     print(upper)
 
 
-string_val(str)
+if __name__ == '__main__':
+    s = input()
+    string_val(s)

@@ -1,11 +1,5 @@
 n = int(input())
-inp = input().split()
-st = set()
-index = 0
-for i in range(n):
-    st.add(int(inp[index]))
-    index = index + 1
-
+st = set(map(int, input().split()))
 operation = int(input())
 
 for i in range(operation):
