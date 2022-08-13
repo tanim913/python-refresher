@@ -1,0 +1,53 @@
+inp = str(input())
+cnt = 1
+ls = []
+curr_num = 0
+if inp.strip() == "git init":
+    while True:
+        com_msg = input(str()).split(" ")
+
+        if com_msg[0] == "git":
+
+            if com_msg[1] == "commit":
+                curr_num = cnt
+                com_msg_str = ' '.join(str(x) for x in com_msg[2:])
+                x = str(cnt) + " " + com_msg_str
+                ls.append(x)
+                cnt += 1
+
+            if com_msg[1] == "show" and com_msg[2] == "commit":
+                temp = ls[len(ls) - 1].split(" ")
+                print(' '.join(str(x) for x in temp[1:]))
+
+            if com_msg[1] == "show" and com_msg[2] == "all" and com_msg[3] == "commit":
+                for i in range(len(ls) - 1, -1, -1):
+                    if i == len(ls) - 1:
+                        y = '*' + str(ls[i])
+                        print(y)
+                    else:
+                        print(ls[i])
+
+            if com_msg[1] == "delete":
+                if len(ls) != 0:
+                    key = int(com_msg[2])
+                    for i in range(0, len(ls), 1):
+                        if key == int(ls[i][0]):
+                            del ls[i]
+                            break
+                else:
+                    print("No commit left to delete")
+
+            if com_msg[1] == "jump":  # need to work
+                pass
+            if com_msg[1] == "move" and com_msg[2] == "back":  # need to work
+                pass
+
+            if com_msg[1] == "update":
+                tm = ' '.join(str(x) for x in com_msg[2:])
+                digit = (ls[len(ls) - 1][0])
+                ls[len(ls) - 1] = digit + " " + tm
+
+        if com_msg[0].strip() == "exit":
+            break
+else:
+    print("Re-run the code and enter 'git init'")
