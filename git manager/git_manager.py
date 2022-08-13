@@ -2,6 +2,7 @@ inp = str(input())
 cnt = 1
 ls = []
 ls2 = [" "]
+move_back = False
 curr_num = 0
 if inp.strip() == "git init":
     while True:
@@ -11,6 +12,7 @@ if inp.strip() == "git init":
 
             if com_msg[1] == "commit":
                 curr_num = cnt
+                move_back = False
                 com_msg_str = ' '.join(str(x) for x in com_msg[2:])
                 x = str(cnt) + " " + com_msg_str
                 ls.append(x)
@@ -22,11 +24,18 @@ if inp.strip() == "git init":
 
             if com_msg[1] == "show" and com_msg[2] == "all" and com_msg[3] == "commit":
                 for i in range(len(ls) - 1, -1, -1):
-                    if i == len(ls) - 1:
-                        y = '*' + str(ls[i])
-                        print(y)
-                    else:
-                        print(ls[i])
+                    if not move_back:
+                        if i == len(ls) - 1:
+                            y = '*' + str(ls[i])
+                            print(y)
+                        else:
+                            print(ls[i])
+                    if move_back:
+                        if i == len(ls) - 2:
+                            y = '*' + str(ls[i])
+                            print(y)
+                        else:
+                            print(ls[i])
 
             if com_msg[1] == "delete":
                 if len(ls) != 0:
@@ -38,7 +47,7 @@ if inp.strip() == "git init":
                 else:
                     print("No commit left to delete")
 
-            if com_msg[1] == "jump":  
+            if com_msg[1] == "jump":
                 t = ""
                 key = int(com_msg[2])
                 # print(key)
@@ -50,8 +59,8 @@ if inp.strip() == "git init":
                 ls2[0] = t
                 ls = ls + ls2
 
-            if com_msg[1] == "move" and com_msg[2] == "back":  # need to work
-                pass
+            if com_msg[1] == "move" and com_msg[2] == "back":
+                move_back = True
 
             if com_msg[1] == "update":
                 tm = ' '.join(str(x) for x in com_msg[2:])
