@@ -19,8 +19,12 @@ if inp.strip() == "git init":
                 cnt += 1
 
             if com_msg[1] == "show" and com_msg[2] == "commit":
-                temp = ls[len(ls) - 1].split(" ")
-                print(' '.join(str(x) for x in temp[1:]))
+                if not move_back:
+                    temp = ls[len(ls) - 1].split(" ")
+                    print(' '.join(str(x) for x in temp[1:]))
+                if move_back:
+                    temp = ls[len(ls) - 2].split(" ")
+                    print(' '.join(str(x) for x in temp[1:]))
 
             if com_msg[1] == "show" and com_msg[2] == "all" and com_msg[3] == "commit":
                 for i in range(len(ls) - 1, -1, -1):
@@ -64,8 +68,12 @@ if inp.strip() == "git init":
 
             if com_msg[1] == "update":
                 tm = ' '.join(str(x) for x in com_msg[2:])
-                digit = (ls[len(ls) - 1][0])
-                ls[len(ls) - 1] = digit + " " + tm
+                if not move_back:
+                    digit = (ls[len(ls) - 1][0])
+                    ls[len(ls) - 1] = digit + " " + tm
+                if move_back:
+                    digit = (ls[len(ls) - 2][0])
+                    ls[len(ls) - 2] = digit + " " + tm
 
         if com_msg[0].strip() == "exit":
             break
