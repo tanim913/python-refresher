@@ -1,6 +1,7 @@
 inp = str(input())
 cnt = 1
 ls = []
+ls2 = [" "]
 curr_num = 0
 if inp.strip() == "git init":
     while True:
@@ -37,8 +38,18 @@ if inp.strip() == "git init":
                 else:
                     print("No commit left to delete")
 
-            if com_msg[1] == "jump":  # need to work
-                pass
+            if com_msg[1] == "jump":  
+                t = ""
+                key = int(com_msg[2])
+                # print(key)
+                for i in range(0, len(ls), 1):
+                    if key == int(ls[i][0]):
+                        t = ls[i]
+                        del ls[i]
+                        break
+                ls2[0] = t
+                ls = ls + ls2
+
             if com_msg[1] == "move" and com_msg[2] == "back":  # need to work
                 pass
 
