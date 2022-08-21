@@ -12,8 +12,6 @@ class Solution:
                 right -= 1
                 
             if numbers[left] + numbers[right] == target:
-                l.append(left+1)
-                l.append(right+1)
-                return l
+                return [left + 1, right + 1]
             
         return -1
