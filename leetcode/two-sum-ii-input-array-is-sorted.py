@@ -14,4 +14,4 @@ class Solution:
             if numbers[left] + numbers[right] == target:
                 return [left + 1, right + 1]
             
-        return -1
+        return []
