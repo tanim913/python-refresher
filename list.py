@@ -49,7 +49,6 @@ print(l3[::2])
 print(l3[::-1])
 print(l3[::-1] + l3[1:])
 
-
 # copying list
 l4 = [1, 2, 3]
 l5 = l4
@@ -63,10 +62,11 @@ l5 = l4[:]
 
 # list comprehension
 l6 = [1, 2, 3, 4]
-l7 = [i*i for i in l6]
+l7 = [i * i for i in l6]
 print(l7)
-
 
 l8 = [0] * 5
 print(l8)
 print(l8.count(0))
+l7 = [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11]
+print("List", l7[0:9:2])
