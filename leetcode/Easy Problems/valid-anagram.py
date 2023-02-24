@@ -4,7 +4,7 @@
 # Time complexity is O(s+t); cause they have to iterate through every character of the string
 # Space Complexity is O(s+t); cause they are creating two new hashmaps which is the size of s and t
 class Solution:
-    def isAnagram1(self, s: str, t: str) -> bool:
+    def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
         count_s, count_t = {}, {}
