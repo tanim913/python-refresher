@@ -1,6 +1,6 @@
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
-<<<<<<< HEAD
+
         pair = [(p,s) for p, s in zip(position, speed)] # making list of pair by list comprehension
         '''
             sorting the pair in descending order to know whose position is the farthest away from the target. 
@@ -8,9 +8,9 @@ class Solution:
             pair would be [(4, 1), (2, 2), (0, 4)]
             
         '''
-=======
+
         pair = [(p,s) for p, s in zip(position, speed)] 
->>>>>>> 136c3a4474a3da65ef9897f781430b516f3a8bfa
+
         pair.sort(reverse=True)
         stack = []
         for p,s in pair:
@@ -18,9 +18,9 @@ class Solution:
             if len(stack)>=2 and stack[-1] <= stack[-2]:
                 stack.pop()
         return len(stack)
-<<<<<<< HEAD
+
     
-=======
+
 
 
         '''
@@ -41,4 +41,3 @@ class Solution:
         |   7   |----> car fleet didnt occur because the faster car would reach to the target earlier
         |   5   |_____^       
         '''
->>>>>>> 136c3a4474a3da65ef9897f781430b516f3a8bfa
