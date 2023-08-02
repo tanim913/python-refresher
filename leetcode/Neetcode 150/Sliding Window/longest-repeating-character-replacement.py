@@ -15,7 +15,6 @@ class Solution:
             which means window length - max frequency > k then we move our left pointer forward to 
             find for a window length and at the same time we need decrease the char freq at
             left pointer becuase it would not be inside the window.
-            
             '''
             count[s[right]] = count.get(s[right], 0) + 1
             max_f = max(count[s[right]], max_f)
